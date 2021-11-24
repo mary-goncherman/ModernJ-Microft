@@ -1,9 +1,6 @@
 package chapter_15;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class CFComplete {
     public static void main(String[] args)throws ExecutionException, InterruptedException {
@@ -16,6 +13,7 @@ public class CFComplete {
 
         executorService.submit(() -> a.complete(f(x)));
         executorService.submit(() -> b.complete(g(x)));
+        //Future
 
         // операция с запуститься только тогда, когда выполняться а и б, нет ожидание при получении результата
         System.out.println(c.get());
